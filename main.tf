@@ -6,4 +6,9 @@ module "vpc" {
   private_subnet_cidr = var.private_subnet_cidr
   az                  = var.az
 }
+module "security_group" {
+  source = "./modules/security-group"
+
+  vpc_id = module.vpc.vpc_id
+}
 
